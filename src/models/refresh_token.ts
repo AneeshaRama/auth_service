@@ -29,4 +29,4 @@ const refreshTokenSchema = new Schema<IRefreshToken>({
 }, {timestamps: true})
 
 
-export const refreshToken = model<IRefreshToken>("refresh_token", refreshTokenSchema);
+export const RefreshToken = model<IRefreshToken>("refresh_token", refreshTokenSchema);

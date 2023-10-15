@@ -7,9 +7,9 @@ import cors from "cors"
 const app = express();
 dotenv.config();
 
-export const startServer = ()=>{
+export const startServer = async ()=>{
     //connect to database
-    connectToDatabase();
+    await connectToDatabase();
 
     app.use(json())
     app.use(cors())
