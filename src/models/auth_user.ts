@@ -63,53 +63,46 @@ const userScehma = new Schema<IAuthUser>({
     auth_type:{
         type: String,
         enum: Object.values(AuthType),
-        required: true
     },
     user_role:{
         type: String,
         enum: Object.values(UserRole),
-        required: true
+        default: UserRole.USER
     },
     is_email_verified:{
         type: Boolean,
-        required: true,
         default: false
     },
     is_mobile_verified:{
         type: Boolean,
-        required: true,
         default: false
     },
     is_mfa_enabled:{
         type: Boolean,
-        required: true,
         default: false
     },
     wrong_count:{
-        type: Number,
-        required: true,        
+        type: Number, 
+        default: 0      
     },
     time_out:{
-        type: Date,
-        required: true,        
+        type: Date,    
     },
     time_out_count:{
         type: Number,
-        required: true,        
+        default: 0
     },   
     account_status:{
         type: String,
-        enum: Object.values(UserRole),
-        required: true
+        enum: Object.values(AccountStatus),
+        default: AccountStatus.ACTIVE
     }, 
     is_deleted:{
         type: Boolean,
-        required: true,
         default: false
     },
     delete_at:{
         type: Date,
-        required: true,        
     },
 }, {timestamps: true})
 
