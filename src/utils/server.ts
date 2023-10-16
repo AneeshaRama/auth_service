@@ -2,13 +2,13 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectToDatabase } from "./connect_db";
 import {json} from "body-parser"
-import cors from "cors"
+import cors from "cors";
 
 const app = express();
 dotenv.config();
 
 export const startServer = async ()=>{
-    //connect to database
+
     await connectToDatabase();
 
     app.use(json())
