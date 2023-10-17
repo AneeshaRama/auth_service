@@ -12,6 +12,8 @@ interface IAuthUser extends Document{
     is_mobile_verified: boolean,
     is_mfa_enabled: boolean,    
     account_status: AccountStatus,
+    country: string,
+    country_code: number,
     wrong_count: number,
     time_out: Date,
     time_out_count: number,
@@ -50,15 +52,12 @@ const userScehma = new Schema<IAuthUser>({
     },
     username:{
         type: String,
-        required: true
     },
     email:{
         type: String,
-        required: true
     },
     password_hash:{
         type: String,
-        required: true
     },    
     auth_type:{
         type: String,
@@ -97,6 +96,12 @@ const userScehma = new Schema<IAuthUser>({
         enum: Object.values(AccountStatus),
         default: AccountStatus.ACTIVE
     }, 
+    country:{
+        type: String
+    },
+    country_code:{
+        type: Number
+    },
     is_deleted:{
         type: Boolean,
         default: false

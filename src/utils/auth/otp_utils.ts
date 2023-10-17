@@ -14,7 +14,7 @@ export const generateOtp = async (source: string, target: Target)=>{
 
 
 export const verifyOtp = async(source: string, otp: string)=>{
-    // find the otp using source (can be more than one)
+    // find the otp using source (can be more than one)    
 
     // check for expiration
 
