@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import "express-async-errors"
 import { connectToDatabase } from "./connect_db";
@@ -18,6 +18,9 @@ export const startServer = async ()=>{
     app.use(json())
 
     app.use("/api", authroute);
+    app.all("*", async(req: Request, res: Response)=>{
+        res.status(404).json({error: "Path not found"})
+    })
 
     app.use(errorHandler);
 
