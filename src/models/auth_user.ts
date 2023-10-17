@@ -5,6 +5,7 @@ interface IAuthUser extends Document{
     last_name: string,
     username: string,
     email: string,
+    phone_number: string,
     password_hash: string,
     auth_type: AuthType,
     user_role: UserRole,
@@ -54,6 +55,9 @@ const userScehma = new Schema<IAuthUser>({
         type: String,
     },
     email:{
+        type: String,
+    },
+    phone_number:{
         type: String,
     },
     password_hash:{
