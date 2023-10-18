@@ -1,7 +1,7 @@
-import {Document, Schema, model} from "mongoose";
+import {Document, ObjectId, Schema, model} from "mongoose";
 
 interface IOtp extends Document{
-    source: string,
+    user_id: ObjectId,
     otp_code_hash: string,
     target: Target,
     expiration_date: Date
@@ -15,8 +15,8 @@ export enum Target{
 
 
 const otpSchema = new Schema<IOtp>({
-    source:{
-        type: String,
+    user_id:{
+        type: Schema.Types.ObjectId,
         ref: "auth_user"
     },
     otp_code_hash:{

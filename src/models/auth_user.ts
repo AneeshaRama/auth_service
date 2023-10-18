@@ -35,8 +35,9 @@ enum UserRole{
      USER="USER"
 }
 
-enum AccountStatus{
+export enum AccountStatus{
     ACTIVE="ACTIVE",
+    INACTIVE="INACTIVE",
     BANNED="BANNED",
     BLOCKED="BLOCKED"
 }
@@ -98,7 +99,7 @@ const userScehma = new Schema<IAuthUser>({
     account_status:{
         type: String,
         enum: Object.values(AccountStatus),
-        default: AccountStatus.ACTIVE
+        default: AccountStatus.INACTIVE
     }, 
     country:{
         type: String
